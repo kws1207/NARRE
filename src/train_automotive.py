@@ -5,12 +5,17 @@ import tensorflow.compat.v1  as tf
 import pickle
 import datetime
 
+# DATASET = 'music'
+DATASET = 'automotive'
+# DATASET = 'toys_and_games'
+TPS_DIR = '/content/NARRE/data/' + DATASET
+
 from model import NARRE
 tf.disable_v2_behavior()
-tf.flags.DEFINE_string("word2vec", "/content/NARRE/data/google.bin", "Wor2vec file with pre-trained embedings (default: None)")
-tf.flags.DEFINE_string("valid_data", "/content/NARRE/data/music/music.test", "Data for validation")
-tf.flags.DEFINE_string("para_data", "/content/NARRE/data/music/music.para", "Data parameters")
-tf.flags.DEFINE_string("train_data", "/content/NARRE/data/music/music.train", "Data for training")
+tf.flags.DEFINE_string("word2vec", "/content/NARRE/data/google.bin", "Word2vec file with pre-trained embedings (default: None)")
+tf.flags.DEFINE_string("valid_data", TPS_DIR + "/" + DATASET + ".test", "Data for validation")
+tf.flags.DEFINE_string("para_data", TPS_DIR + "/" + DATASET + ".para", "Data parameters")
+tf.flags.DEFINE_string("train_data", TPS_DIR + "/" + DATASET + ".train", "Data for training")
 tf.flags.DEFINE_string("word_weight_user", "/content/NARRE/data/embedding/W_user.pk", "word2vec file from user vocabulary")
 tf.flags.DEFINE_string("word_weight_item", "/content/NARRE/data/embedding/W_item.pk", "word2vec file from item vocabulary")
 # ===================================================
