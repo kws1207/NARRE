@@ -8,7 +8,11 @@ import tensorflow.compat.v1  as tf
 import csv
 import pickle
 import os
-from pro_data.loaddata import DATASET, TPS_DIR
+
+DATASET = 'music'
+# DATASET = 'automotive'
+# DATASET = 'toys_and_games'
+TPS_DIR = '/content/NARRE/data/' + DATASET
  
 tf.disable_v2_behavior()
 tf.flags.DEFINE_string("valid_data", TPS_DIR + "/" + DATASET + "_valid.csv", "Data for validation")
